@@ -1,11 +1,13 @@
 import React from 'react'
-import { View } from 'react-native'
+import { Text, View } from 'react-native'
+
+import styles from './styles'
 
 function PageHeader(props) {
     return (
-        <View>
+        <View style={styles.container}>
             <View style={styles.topBar}>
-                <Text style={styles.topTitle}>5e Monster Reference</Text>
+                <Text style={styles.topBarTitle}>5e Monster Reference</Text>
             </View>
             <View style={styles.header}>
                 <Text style={styles.headerTitle}>{props.title}</Text>
