@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     },
 
     header: {
-        flexDirection: 'row',
-        alignItems: 'center',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
         justifyContent: 'space-between'
     },
 
@@ -29,6 +29,12 @@ const styles = StyleSheet.create({
         lineHeight: 32,
         maxWidth: 160,
         marginTop: 15
+    },
+    
+    headerSubTitle: {
+        color: '#fff',
+        fontSize: 16,
+        lineHeight: 32,
     }
 
 })
