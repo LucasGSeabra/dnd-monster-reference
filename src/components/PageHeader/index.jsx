@@ -11,6 +11,7 @@ function PageHeader(props) {
             </View>
             <View style={styles.header}>
                 <Text style={styles.headerTitle}>{props.title}</Text>
+                <Text style={styles.headerSubTitle}>{props.subTitle}</Text>
             </View>
             {props.children}
         </View>
