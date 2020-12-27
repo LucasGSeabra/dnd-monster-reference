@@ -3,6 +3,7 @@ import { View, Text } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import PageHeader from '../../components/PageHeader'
 import ReferenceItem from '../../components/ReferenceItem'
+import { useNavigation } from '@react-navigation/native';
 import api from '../../services/api'
 
 import styles from './styles'
@@ -10,10 +11,14 @@ import styles from './styles'
 function LandingPage() {
 
     const [referencesList, setReferencesList] = useState([])
+    const { navigate } = useNavigation()
+
+    function handleClick(index) {
+        navigate()
+    }
 
     useEffect(() => {
-        api.get('monsters/').then( response => {
-            setReferences(response.data.results)
+        api.get().then( response => {
             setReferencesList(response.data.results)
         }).catch( error => 
             console.log(error) 
