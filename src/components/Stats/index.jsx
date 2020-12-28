@@ -8,7 +8,7 @@ function Stats(props) {
         <View style={styles.statsContainer}>
             {props.statValues.map(stat => {
                 return (
-                    <View style={styles.valuesContainer}>
+                    <View key={stat.name} style={styles.valuesContainer}>
                         <Text style={styles.statName}>{stat.name}</Text>
                         <Text style={styles.statValue}>{stat.value}</Text>
                     </View>
