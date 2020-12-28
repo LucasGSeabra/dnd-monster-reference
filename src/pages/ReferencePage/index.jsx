@@ -19,7 +19,7 @@ function ReferencePage(props) {
     
     return (
         <View>
-            <PageHeader title={reference.name} subTitle={`${reference.size} ${reference.type}`} >
+            <PageHeader title={reference.name} subTitle={`${reference.size} ${reference.type}, ${reference.alignment} `} >
                 <Stats statValues={[
                     {name: 'STR', value: reference.strength},
                     {name: 'DEX', value: reference.dexterity},
