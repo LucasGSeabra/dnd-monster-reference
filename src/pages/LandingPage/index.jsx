@@ -25,7 +25,7 @@ function LandingPage() {
             <ScrollView>
                 { referencesList.map(reference => {
                     return (
-                        <ReferenceItem name={reference.name} key={reference.index} index={reference.index}/>
+                        <ReferenceItem name={`${reference.name} CR: ${reference.challenge_rating}`} key={reference.slug} index={reference.slug}/>
                     )
                 })}
             </ScrollView>
