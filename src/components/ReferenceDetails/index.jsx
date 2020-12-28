@@ -1,21 +1,30 @@
-import React from 'react'
-import { View } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { View, Text } from 'react-native'
+
+import styles from './styles'
 
 function ReferenceDetails(props) {
+
+    const[reference, setReference] = useState([])
+
+    useEffect(() => {
+        setReference(props.details)
+    }, [props.details])
+
     return (
-        <View>
-            <View>
-                <Text>{props.detailTitle}</Text>
+        <View style={styles.container}>
+            <View style={styles.titleContainer}>
+                <Text style={styles.title}>{props.detailTitle}</Text>
             </View>
-            
-            {props.details.map(detail => {
-                return (
-                    <View >
-                        <Text>{detail.name}</Text>
-                        <Text>{detail.value}</Text>
-                    </View>
-                )
-            })}  
+            {props.description && <Text style={styles.description}>{props.description}</Text>}
+                {reference && reference.map(ref => {
+                    return (
+                        <View style={styles.referenceContainer} key={ref.name}>
+                            <Text style={styles.referenceName}>{ref.name}</Text>
+                            <Text style={styles.referenceDescription}>{ref.desc}</Text>
+                        </View>
+                    )
+                })}
         </View>
     )
 }
