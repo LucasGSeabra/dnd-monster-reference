@@ -6,6 +6,7 @@ import ReferenceDetails from '../../components/ReferenceDetails'
 import Stats from '../../components/Stats'
 import api from '../../services/api'
 
+import styles from './styles'
 
 function ReferencePage(props) {
 
@@ -20,7 +21,7 @@ function ReferencePage(props) {
     }, [])
     
      return (
-        <View>
+        <View style={styles.container}>
             <PageHeader title={reference.name} subTitle={`${reference.size} ${reference.type}, ${reference.alignment} `} >
                 <Stats statValues={[
                     {name: 'STR', value: reference.strength},
