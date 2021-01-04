@@ -3,6 +3,7 @@ import { View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import PageHeader from '../../components/PageHeader'
 import ReferenceItem from '../../components/ReferenceItem'
+import SearchReferences from '../../components/SearchReferences';
 import api from '../../services/api'
 
 import styles from './styles'
@@ -29,7 +30,9 @@ function LandingPage() {
 
     return (
         <View style={styles.container}>
-            <PageHeader title="Monsters List"></PageHeader>
+            <PageHeader title="Monsters List">
+                <SearchReferences search={setSearch}/>
+            </PageHeader>
             <ScrollView>
                 { referencesList.map(reference => {
                     return (
