@@ -12,7 +12,13 @@ function LandingPage() {
     const [referencesList, setReferencesList] = useState([])
     
     useEffect(() => {
-        api.get('?fields=slug,name,challenge_rating&limit=100&ordering=slug').then( response => {
+        api.get('/', {
+            params: {
+                fields: ['slug', 'name', 'challenge_rating'].join(),
+                limit: 100,
+                ordering: 'slug',
+            }
+        }).then( response => {
             setReferencesList(response.data.results)
         }).catch( error => 
             console.log(error) 
