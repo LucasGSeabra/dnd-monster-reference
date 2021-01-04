@@ -13,7 +13,7 @@ function ReferencePage(props) {
     const [reference, setReference] = useState([])
 
     useEffect(() => {
-        api.get(`${props.route.params.index}`).then( response => {
+        api.get(`/${props.route.params.index}`).then( response => {
             setReference(response.data)
         }).catch( error => 
             console.log(error) 
