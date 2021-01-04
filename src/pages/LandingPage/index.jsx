@@ -1,5 +1,5 @@
 import React, { useEffect, useState }  from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import PageHeader from '../../components/PageHeader'
 import ReferenceItem from '../../components/ReferenceItem'
@@ -10,6 +10,7 @@ import styles from './styles'
 function LandingPage() {
 
     const [referencesList, setReferencesList] = useState([])
+    const [search, setSearch] = useState('')
     
     useEffect(() => {
         api.get('/', {
@@ -17,13 +18,14 @@ function LandingPage() {
                 fields: ['slug', 'name', 'challenge_rating'].join(),
                 limit: 100,
                 ordering: 'slug',
+                search
             }
         }).then( response => {
             setReferencesList(response.data.results)
         }).catch( error => 
             console.log(error) 
         )
-    }, [])
+    }, [search])
 
     return (
         <View style={styles.container}>
