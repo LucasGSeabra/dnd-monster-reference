@@ -1,6 +1,6 @@
 import React, { useEffect, useState }  from 'react'
 import { View } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
+import { ScrollView, FlatList } from 'react-native-gesture-handler'
 import PageHeader from '../../components/PageHeader'
 import ReferenceItem from '../../components/ReferenceItem'
 import SearchReferences from '../../components/SearchReferences';
@@ -13,6 +13,10 @@ function LandingPage() {
     const [referencesList, setReferencesList] = useState([])
     const [search, setSearch] = useState('')
     
+    const renderItem = ({ item }) => (
+        <ReferenceItem name={`${item.name} CR: ${item.challenge_rating}`} key={item.slug} index={item.slug}/>
+    )
+
     useEffect(() => {
         api.get('/', {
             params: {
@@ -33,13 +37,13 @@ function LandingPage() {
             <PageHeader title="Monsters List">
                 <SearchReferences search={setSearch}/>
             </PageHeader>
-            <ScrollView>
-                { referencesList.map(reference => {
-                    return (
-                        <ReferenceItem name={`${reference.name} CR: ${reference.challenge_rating}`} key={reference.slug} index={reference.slug}/>
-                    )
-                })}
-            </ScrollView>
+                <FlatList
+                    data={referencesList}
+                    renderItem={renderItem}
+                    keyExtractor={item => item.slug}
+                    onEndReachedThreshold={40}
+                    onEndReached={() => setPage(page + 1)}
+                />
         </View>
     )
 }
