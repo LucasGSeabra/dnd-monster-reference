@@ -15,6 +15,7 @@ function ReferenceItem(props) {
     return (
         <RectButton style={styles.item} onPress={() => handleClick(props.index)}>
             <Text style={styles.itemName}>{props.name}</Text>
+            <Text style={styles.itemDescription}>CR: {props.challenge}, {props.size} {props.type} </Text>
         </RectButton>
     )
 }
