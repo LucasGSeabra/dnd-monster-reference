@@ -10,7 +10,14 @@ const styles = StyleSheet.create({
     itemName: {
         fontSize: 18,
         paddingLeft: 15,
+        marginTop: 5
+    },
+
+    itemDescription: {
         marginVertical: 8
+        fontSize: 14,
+        paddingLeft: 15,
+        marginBottom: 5
     }
 })
 
