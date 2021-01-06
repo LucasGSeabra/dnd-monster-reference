@@ -8,13 +8,14 @@ const styles = StyleSheet.create({
     },
     
     itemName: {
+        fontFamily: 'Montserrat_600SemiBold',
         fontSize: 18,
         paddingLeft: 15,
         marginTop: 5
     },
 
     itemDescription: {
-        marginVertical: 8
+        fontFamily: 'Montserrat_400Regular',
         fontSize: 14,
         paddingLeft: 15,
         marginBottom: 5
