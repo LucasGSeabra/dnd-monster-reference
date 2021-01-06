@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     },
 
     topBarTitle: {
+        fontFamily: 'VollkornSC_600SemiBold',
         color: '#fff',
         fontSize: 12
     },
@@ -24,6 +25,7 @@ const styles = StyleSheet.create({
     },
 
     headerTitle: {
+        fontFamily: 'VollkornSC_700Bold',
         color: '#fff',
         fontSize: 24,
         lineHeight: 32,
@@ -31,6 +33,7 @@ const styles = StyleSheet.create({
     },
     
     headerSubTitle: {
+        fontFamily: 'VollkornSC_600SemiBold',
         color: '#fff',
         fontSize: 16,
         lineHeight: 32,
