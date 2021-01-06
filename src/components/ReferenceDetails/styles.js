@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     },
 
     title: {
+        fontFamily: 'VollkornSC_600SemiBold',
         fontSize: 28,
-        fontWeight: 'bold',
         marginBottom: 5
     },
 
@@ -30,12 +30,13 @@ const styles = StyleSheet.create({
     },
 
     referenceName: {
+        fontFamily: 'Montserrat_600SemiBold',
         fontSize: 18,
-        fontWeight: 'bold',
         textAlign: 'justify'
     },
 
     referenceDescription: {
+        fontFamily: 'Montserrat_400Regular',
         fontSize: 18,
         textAlign: 'justify'
     }
