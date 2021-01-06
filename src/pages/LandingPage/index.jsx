@@ -14,7 +14,14 @@ function LandingPage() {
     const [search, setSearch] = useState('')
     
     const renderItem = ({ item }) => (
-        <ReferenceItem name={`${item.name} CR: ${item.challenge_rating}`} key={item.slug} index={item.slug}/>
+        <ReferenceItem 
+            name={item.name} 
+            challenge={item.challenge_rating} 
+            size={item.size} 
+            type={item.type}
+            key={item.slug} 
+            index={item.slug}
+        />
     )
 
     useEffect(() => {
