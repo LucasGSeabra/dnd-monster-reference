@@ -20,7 +20,7 @@ function LandingPage() {
     useEffect(() => {
         api.get('/', {
             params: {
-                fields: ['slug', 'name', 'challenge_rating'].join(),
+                fields: ['slug', 'name', 'challenge_rating', 'type', 'size'].join(),
                 limit: 100,
                 ordering: 'slug',
                 search
