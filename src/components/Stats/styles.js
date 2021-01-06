@@ -15,12 +15,13 @@ const styles = StyleSheet.create({
     },
 
     statName: {
+        fontFamily: 'VollkornSC_700Bold',
         color: '#fff',
         fontSize: 18,
-        fontWeight: 'bold'
     },
 
     statValue: {
+        fontFamily: 'VollkornSC_600SemiBold',
         color: '#fff',
         fontSize: 18
     },
