@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Text } from 'react-native'
 import { RectButton } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native';
@@ -20,4 +20,4 @@ function ReferenceItem(props) {
     )
 }
 
-export default ReferenceItem
+export default memo(ReferenceItem)
