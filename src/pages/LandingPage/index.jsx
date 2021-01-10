@@ -12,6 +12,8 @@ function LandingPage() {
 
     const [referencesList, setReferencesList] = useState([])
     const [search, setSearch] = useState('')
+    const [count, setCount] = useState(0)
+    const [page, setPage] = useState(1)
     
     const renderItem = ({ item }) => (
         <ReferenceItem 
@@ -24,20 +26,28 @@ function LandingPage() {
         />
     )
 
+    function paginationHandler() {
+        if(referencesList.length < count && search.length === 0) {
+            setPage(page + 1)
+        }
+    }
+
     useEffect(() => {
-        api.get('/', {
+        api.get('', {
             params: {
                 fields: ['slug', 'name', 'challenge_rating', 'type', 'size'].join(),
                 limit: 100,
                 ordering: 'slug',
-                search
+                search,
+                page
             }
         }).then( response => {
-            setReferencesList(response.data.results)
+            setCount(response.data.count)
+            setReferencesList([...referencesList, ...response.data.results])
         }).catch( error => 
             console.log(error) 
         )
-    }, [search])
+    }, [search, page])
 
     return (
         <View style={styles.container}>
@@ -53,7 +63,7 @@ function LandingPage() {
                     renderItem={renderItem}
                     keyExtractor={item => item.slug}
                     onEndReachedThreshold={40}
-                    onEndReached={() => setPage(page + 1)}
+                    onEndReached={() => paginationHandler()}
                 />
         </View>
     )
