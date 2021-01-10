@@ -1,6 +1,6 @@
 import React, { useEffect, useState }  from 'react'
 import { View } from 'react-native'
-import { ScrollView, FlatList } from 'react-native-gesture-handler'
+import { FlatList } from 'react-native-gesture-handler'
 import PageHeader from '../../components/PageHeader'
 import ReferenceItem from '../../components/ReferenceItem'
 import SearchReferences from '../../components/SearchReferences';
@@ -42,7 +42,11 @@ function LandingPage() {
     return (
         <View style={styles.container}>
             <PageHeader title="Monsters List">
-                <SearchReferences search={setSearch}/>
+                <SearchReferences 
+                    search={setSearch}
+                    setReferencesList={setReferencesList}
+                    setPage={setPage} 
+                />
             </PageHeader>
                 <FlatList
                     data={referencesList}
