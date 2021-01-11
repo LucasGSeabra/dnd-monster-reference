@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, memo } from 'react'
 import { View, Text } from 'react-native'
 
 import styles from './styles'
@@ -29,4 +29,4 @@ function ReferenceDetails(props) {
     )
 }
 
-export default ReferenceDetails
+export default memo(ReferenceDetails)
