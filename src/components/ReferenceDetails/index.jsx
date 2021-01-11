@@ -5,10 +5,10 @@ import styles from './styles'
 
 function ReferenceDetails(props) {
 
-    const[reference, setReference] = useState([])
+    const[references, setReferences] = useState([])
 
     useEffect(() => {
-        setReference(props.details)
+        setReferences(props.details)
     }, [props.details])
 
     return (
@@ -17,11 +17,11 @@ function ReferenceDetails(props) {
                 <Text style={styles.title}>{props.detailTitle}</Text>
             </View>
             {props.description && <Text style={styles.description}>{props.description}</Text>}
-                {reference && reference.map(ref => {
+                {references && references.map(reference => {
                     return (
-                        <View style={styles.referenceContainer} key={ref.name}>
-                            <Text style={styles.referenceName}>{ref.name}</Text>
-                            <Text style={styles.referenceDescription}>{ref.desc}</Text>
+                        <View style={styles.referenceContainer} key={reference.name}>
+                            <Text style={styles.referenceName}>{reference.name}</Text>
+                            <Text style={styles.referenceDescription}>{reference.desc}</Text>
                         </View>
                     )
                 })}
