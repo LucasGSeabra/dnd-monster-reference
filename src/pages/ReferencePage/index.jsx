@@ -13,8 +13,12 @@ function ReferencePage(props) {
     const [reference, setReference] = useState([])
 
     useEffect(() => {
-        api.get(`/${props.route.params.index}`).then( response => {
-            setReference(response.data)
+        api.get(`/${props.route.params.index}`).then( response => {     
+            if(response.data.legendary_actions) {
+                setReference(response.data)
+            } else {
+                setReference({...response.data, legendary_actions: null, legendary_desc: null})
+            }
         }).catch( error => 
             console.log(error) 
         )
