@@ -26,7 +26,10 @@ function ReferencePage(props) {
     
      return (
         <View style={styles.container}>
-            <PageHeader title={reference.name} subTitle={`${reference.size} ${reference.type}, ${reference.alignment} `} >
+            <PageHeader 
+                title={reference.name} 
+                subTitle={`${reference.size} ${reference.type}, ${reference.alignment} `} 
+            >
                 <Stats statValues={[
                     {name: 'STR', value: reference.strength},
                     {name: 'DEX', value: reference.dexterity},
@@ -34,7 +37,8 @@ function ReferencePage(props) {
                     {name: 'INT', value: reference.intelligence},
                     {name: 'WIS', value: reference.wisdom},
                     {name: 'CAR', value: reference.charisma},
-                    ]} />
+                    ]} 
+                />
             </PageHeader>
             <ScrollView>
                 <ReferenceDetails detailTitle="Info" details={[
@@ -42,14 +46,16 @@ function ReferencePage(props) {
                     {name: 'Hit Points', desc: `${reference.hit_points}(${reference.hit_dice})`},
                     {name: 'Senses', desc: reference.senses },
                     {name: 'Languages', desc: reference.languages },
+                    ]}
+                />
                 <ReferenceDetails 
                     detailTitle="Special Abilities" 
                     details={reference.special_abilities}
                 />
-                ]}/>
-                {reference.special_abilities && <ReferenceDetails detailTitle="Special Abilities" details={reference.special_abilities}/>}
-                <ReferenceDetails detailTitle="Actions" details={reference.actions}/>
-                <ReferenceDetails detailTitle="Legendary Actions" details={reference.legendary_actions} description={reference.legendary_desc}/>
+                <ReferenceDetails 
+                    detailTitle="Actions" 
+                    details={reference.actions}
+                />
                 {reference.legendary_actions && 
                     <ReferenceDetails 
                     detailTitle="Legendary Actions" 
