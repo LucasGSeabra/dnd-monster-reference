@@ -42,6 +42,10 @@ function ReferencePage(props) {
                     {name: 'Hit Points', desc: `${reference.hit_points}(${reference.hit_dice})`},
                     {name: 'Senses', desc: reference.senses },
                     {name: 'Languages', desc: reference.languages },
+                <ReferenceDetails 
+                    detailTitle="Special Abilities" 
+                    details={reference.special_abilities}
+                />
                 ]}/>
                 {reference.special_abilities && <ReferenceDetails detailTitle="Special Abilities" details={reference.special_abilities}/>}
                 <ReferenceDetails detailTitle="Actions" details={reference.actions}/>
