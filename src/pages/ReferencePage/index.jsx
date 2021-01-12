@@ -46,6 +46,13 @@ function ReferencePage(props) {
                 {reference.special_abilities && <ReferenceDetails detailTitle="Special Abilities" details={reference.special_abilities}/>}
                 <ReferenceDetails detailTitle="Actions" details={reference.actions}/>
                 <ReferenceDetails detailTitle="Legendary Actions" details={reference.legendary_actions} description={reference.legendary_desc}/>
+                {reference.legendary_actions && 
+                    <ReferenceDetails 
+                    detailTitle="Legendary Actions" 
+                    description={reference.legendary_desc}
+                    details={reference.legendary_actions}
+                    />
+                }   
             </ScrollView>
         </View>
     )
