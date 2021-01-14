@@ -2,7 +2,7 @@
 <p>
 </p>
 
-> A quick reference for Dungeons & Dragons 5th Edition Monsters Manual.
+> A quick reference App for Dungeons & Dragons 5th Edition Monsters Manual.
 
 ## Install
 
