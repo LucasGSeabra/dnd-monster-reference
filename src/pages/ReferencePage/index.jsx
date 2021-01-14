@@ -3,6 +3,7 @@ import { View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import PageHeader from '../../components/PageHeader'
 import ReferenceDetails from '../../components/ReferenceDetails'
+import Loading from '../../components/Loading'
 import Stats from '../../components/Stats'
 import api from '../../services/api'
 
@@ -11,14 +12,18 @@ import styles from './styles'
 function ReferencePage(props) {
 
     const [reference, setReference] = useState([])
+    const [loadingVisible, setLoadingVisible] = useState(true)
 
     useEffect(() => {
         api.get(`/${props.route.params.index}`).then( response => {     
             if(response.data.legendary_actions) {
-                setReference(response.data)
+               setReference(response.data)
             } else {
-                setReference({...response.data, legendary_actions: null, legendary_desc: null})
+               setReference({...response.data, legendary_actions: null, legendary_desc: null})
             }
+            setTimeout(() => {
+                setLoadingVisible(false)
+            }, 500);
         }).catch( error => 
             console.log(error) 
         )
@@ -26,6 +31,7 @@ function ReferencePage(props) {
     
      return (
         <View style={styles.container}>
+            <Loading visible={loadingVisible} />
             <PageHeader 
                 title={reference.name} 
                 subTitle={`${reference.size} ${reference.type}, ${reference.alignment} `} 
